@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // URL del API Gateway
-const API_BASE_URL = 'http://localhost:8080';
+const API_BASE_URL = 'https://api-gateway-production-be01.up.railway.app';
 
 // Instancia de Axios
 const api = axios.create({

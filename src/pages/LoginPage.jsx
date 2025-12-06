@@ -13,7 +13,7 @@ export default function LoginPage({ onLogin }) {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8080/api/users/login', {
+      const response = await fetch('https://api-gateway-production-be01.up.railway.app/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -158,7 +158,7 @@ export default function LoginPage({ onLogin }) {
                 </p>
                 <div className="text-xs text-blue-800 space-y-1">
                   <p>• Usa las credenciales de la base de datos</p>
-                  <p>• Verifica que el backend esté corriendo en puerto 8080</p>
+                  <p>• Verifica que el backend esté corriendo en puerto https://api-gateway-production-be01.up.railway.app</p>
                   <p>• Los roles disponibles: fundador, gerente, administrador, cliente</p>
                 </div>
               </div>
@@ -167,7 +167,7 @@ export default function LoginPage({ onLogin }) {
               <div className="mt-4 text-center">
                 <div className="inline-flex items-center gap-2 text-xs text-gray-600">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  Conectando a http://localhost:8080
+                  Conectando a https://api-gateway-production-be01.up.railway.app
                 </div>
               </div>
             </div>
