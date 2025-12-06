@@ -15,7 +15,7 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'https://api-gateway-production-be01.up.railway.app',
         changeOrigin: true,
         secure: false,
       }

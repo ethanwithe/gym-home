@@ -39,7 +39,7 @@ export default function LoginPage({ onLogin }) {
       }
     } catch (err) {
       console.error('Error en login:', err);
-      setError('Error al conectar con el servidor. Verifica que el backend esté corriendo en puerto 8080.');
+      setError('Error al conectar con el servidor.');
     } finally {
       setLoading(false);
     }
