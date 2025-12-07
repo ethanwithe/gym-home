@@ -6,7 +6,6 @@ import {
   Tag, Clock, MapPin, Phone, Mail, Dumbbell, AlertCircle, Award
 } from 'lucide-react';
 
-import gymLuxury from '../assets/hero.png';
 import { clienteService } from "../services/clienteService";
 
 export default function ClienteDashboard({ activeSection }) {
@@ -178,7 +177,7 @@ export default function ClienteDashboard({ activeSection }) {
     return (
       <div className="space-y-6">
         <div className="relative h-64 rounded-lg overflow-hidden shadow-xl">
-          <img src={gymLuxury} alt="Gimnasio" className="w-full h-full object-cover" />
+          <img src="/assets/hero.png" alt="Gimnasio" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex items-center justify-center">
             <div className="text-white text-center">
               <h1 className="text-5xl font-bold mb-2">Gimnasio Juan Pérez</h1>

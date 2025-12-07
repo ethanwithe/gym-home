@@ -49,13 +49,13 @@ export default function LoginPage({ onLogin }) {
     <div className="min-h-screen flex">
       {/* Lado izquierdo - Imagen */}
         <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-cover bg-center"
-             style={{backgroundImage: "url('src/assets/hero.png')"}}>
+          style={{ backgroundImage: "url('/assets/hero.png')" }}>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex items-center justify-center">
           <div className="text-white text-center px-8">
             <img
-            src="src/assets/logo.png"
-            alt="Gimnasio Juan Pérez"
-            className="w-28 h-28 mx-auto mb-6 object-contain drop-shadow-xl animate-pulse"
+              src="/assets/logo.png"
+              alt="Gimnasio Juan Pérez"
+              className="w-28 h-28 mx-auto mb-6 object-contain drop-shadow-xl animate-pulse"
             />
             <h1 className="text-5xl font-bold mb-4">Gimnasio Juan Pérez</h1>
             <p className="text-xl text-gray-200">Sistema de Gestión Integral</p>
