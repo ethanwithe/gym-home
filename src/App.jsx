@@ -14,7 +14,7 @@ function App() {
   // Verifica si hay usuario logueado al cargar la app
   useEffect(() => {
     const currentUser = usuarioService.getCurrentUser();
-    if (currentUser) {
+    if (currentUser) {         
       setUser(currentUser);
     }
     setLoading(false);
