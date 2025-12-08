@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
-import LoginPage from './pages/LoginPage';
-import Dashboard from './pages/Dashboard';
+import LoginPage from './pages/LoginPage.jsx';
+import RegisterPage from './pages/RegisterPage.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import ClienteDashboard from './pages/ClienteDashboard.jsx';
 import { usuarioService } from './services/usuarioService';
-import './index.css';
+import './app.css';
 
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showRegister, setShowRegister] = useState(false);
 
+  // Verifica si hay usuario logueado al cargar la app
   useEffect(() => {
     const currentUser = usuarioService.getCurrentUser();
     if (currentUser) {
@@ -17,6 +21,7 @@ function App() {
   }, []);
 
   const handleLogin = (userData) => {
+    console.log('Login exitoso:', userData);
     setUser(userData);
   };
 
@@ -36,15 +41,27 @@ function App() {
     );
   }
 
-  return (
-    <div className="min-h-screen">
-      {!user ? (
-        <LoginPage onLogin={handleLogin} />
-      ) : (
-        <Dashboard user={user} onLogout={handleLogout} />
-      )}
-    </div>
-  );
+  // Si no hay usuario, mostrar Login o Register
+  if (!user) {
+    return showRegister ? (
+      <RegisterPage toggleLogin={() => setShowRegister(false)} />
+    ) : (
+      <LoginPage
+        onLogin={handleLogin}
+        toggleRegister={() => setShowRegister(true)}
+      />
+    );
+  }
+
+  // REDIRECCIONAMIENTO BASADO EN TIPO DE USUARIO
+  
+  // Si es CLIENTE (viene de /api/clientes)
+  if (user.userType === 'cliente' || user.role === 'cliente') {
+    return <ClienteDashboard user={user} onLogout={handleLogout} />;
+  }
+
+  // Si es USUARIO (viene de /api/users/login) - fundador, admin, gerente
+  return <Dashboard user={user} onLogout={handleLogout} />;
 }
 
 export default App;
